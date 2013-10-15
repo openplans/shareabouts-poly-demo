@@ -1,0 +1,21 @@
+{{> place-detail-promotion-bar }}
+
+<header class="place-header clearfix">
+  <h1>{{ Address }}</h1>
+</header>
+
+<section class="place-items">
+  
+  <p>Owner: {{ OwnerName }}</p>
+  
+  <p>Zoning: {{ AllZoning1 }}</p>
+  
+  <p>Community Board: {{ CD }}</p>
+  
+  <p>BBL: {{ BBL }}</p>
+
+</section>
+
+{{#survey_config}}
+<section class="survey"></section>
+{{/survey_config}}

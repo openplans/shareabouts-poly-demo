@@ -1,11 +1,11 @@
 # Settings for the app
 app:
   # HTML Title
-  title: Shareabouts
+  title: Polygons in Shareabouts
   # Header name
-  name: Shareabouts
+  name: Parking Lots of Brooklyn
   # Meta description that will show up in Google search results
-  meta_description: _(Shareabouts is a mapping tool to gather crowd sourced public input. Use it to collect suggested locations and comments in a social, engaging process.)
+  meta_description: _(The top 150 parking lots of Kings County, NY.)
 
 # Settings for map and layer configs
 map:
@@ -13,150 +13,31 @@ map:
   geolocation_onload: false
   options:
     center:
-      lat: 39.9523524
-      lng: -75.1636075
+      lat: 40.65
+      lng: -73.95
     zoom: 14
     minZoom: 10
     maxZoom: 17
   layers:
-    - url: http://{s}.tiles.mapbox.com/v3/openplans.map-dmar86ym/{z}/{x}/{y}.png
+    - url: http://{s}.tiles.mapbox.com/v3/openplans.map-w29s5fls/{z}/{x}/{y}.png
       attribution: '&copy; OpenStreetMap contributors, CC-BY-SA. <a href="http://mapbox.com/about/maps" target="_blank">Terms &amp; Feedback</a>'
-    - url: /static/data/philadelphia.geojson
-      type: json
-      rules:
-        - condition: 'true'
-          style:
-            color: "#444"
-            opacity: 0.6
-            fillOpacity: 0.2
-            weight: 1
 
 # The keys show up in the dropdown list when you are adding a new place
-# The values map the place type to map icons (defined below).
 place_types:
-  landmark:
+  "10":
     label: _(Landmark)
     rules:
-      - condition: '"{{location_type}}" === "landmark"'
-        # Display landmarks as icons
-
-        icon:
-          iconUrl: /static/css/images/markers/dot-0d85e9.png
-          iconSize:
-            width: 17
-            height: 18
-          iconAnchor: [9, 9]
-        focus_icon:
-          iconUrl: /static/css/images/markers/marker-0d85e9.png
-          shadowUrl: /static/css/images/marker-shadow.png
-          iconSize:
-            width: 25
-            height: 41
-          shadowSize:
-            width: 41
-            height: 41
-          iconAnchor: [12, 41]
-
-        # style:
-        #   color: '#0d85e9'
-        #   radius: 8
-        #   weight: 1
-        #   opacity: 0.9
-        #   fillOpacity: 0.4
-        # focus_style:
-        #   color: '#0d85e9'
-        #   radius: 16
-        #   weight: 1
-        #   opacity: 0.9
-        #   fillOpacity: 0.4
-
-  park:
-    label: _(Park)
-    rules:
-      - condition: '"{{location_type}}" === "park"'
-        # Show parks that are points as icons...
-
-        icon:
-          iconUrl: /static/css/images/markers/dot-4bbd45.png
-          iconSize:
-            width: 17
-            height: 18
-          iconAnchor: [9, 9]
-        focus_icon:
-          iconUrl: /static/css/images/markers/marker-4bbd45.png
-          shadowUrl: /static/css/images/marker-shadow.png
-          iconSize:
-            width: 25
-            height: 41
-          shadowSize:
-            width: 41
-            height: 41
-          iconAnchor: [12, 41]
-
-        # ...and parks that are polygons as shapes.
-
+      - condition: '"{{location_type}}" === "10"'
         style:
-          color: '#4bbd45'
-          radius: 8
-          weight: 1
-          opacity: 0.9
-          fillOpacity: 0.4
+          color: '#f9ff6a'
+          weight: 2
+          opacity: 0.7
+          fillOpacity: 0.5
         focus_style:
-          color: '#4bbd45'
-          radius: 16
-          weight: 1
+          color: '#CD95D7'
+          weight: 3
           opacity: 0.9
-          fillOpacity: 0.4
-
-  school:
-    label: _(School)
-    rules:
-      - condition: '"{{location_type}}" === "school" && {{submission_sets.comments.length}} > 0'
-        # Display schools as circles
-
-        # icon:
-        #   iconUrl: /static/css/images/markers/dot-f95016.png
-        #   iconSize:
-        #     width: 17
-        #     height: 18
-        #   iconAnchor: [9, 9]
-        # focus_icon:
-        #   iconUrl: /static/css/images/markers/marker-f95016.png
-        #   shadowUrl: /static/css/images/marker-shadow.png
-        #   iconSize:
-        #     width: 25
-        #     height: 41
-        #   shadowSize:
-        #     width: 41
-        #     height: 41
-        #   iconAnchor: [12, 41]
-
-        style:
-          color: '#f95016'
-          radius: 8
-          weight: 4
-          opacity: 0.9
-          fillOpacity: 0.4
-        focus_style:
-          color: '#f95016'
-          radius: 16
-          weight: 4
-          opacity: 0.9
-          fillOpacity: 0.4
-      - condition: '"{{location_type}}" === "school"'
-        style:
-          color: '#f95016'
-          radius: 8
-          weight: 1
-          opacity: 0.9
-          fillOpacity: 0.4
-        focus_style:
-          color: '#f95016'
-          radius: 16
-          weight: 1
-          opacity: 0.9
-          fillOpacity: 0.4
-
+          fillOpacity: 0.5
 
 activity:
   # Optional. Activity is supported by default. Set to false to disable.
@@ -165,7 +46,7 @@ activity:
   interval: 30000
 
 place:
-  adding_supported: true
+  adding_supported: false
   add_button_label: _(Add a Place)
   action_text: _(added)
   title: _(Tell us more...)
@@ -250,15 +131,3 @@ pages:
     slug: about
     name: overview
     start_page: true
-
-  - title: _(Why Shareabouts?)
-    slug: why
-    url: /static/pages/why.html
-
-  - title: _(Features)
-    slug: features
-    url: /static/pages/features.html
-
-  - title: _(GitHub)
-    external: true
-    url: https://github.com/openplans/shareabouts

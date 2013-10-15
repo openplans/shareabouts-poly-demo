@@ -27,12 +27,23 @@ place_types:
   "10":
     label: _(Landmark)
     rules:
+      - condition: '"{{location_type}}" === "10" && {{submission_sets.comments.length}} > 0'
+        style:
+          color: '#f9ff00'
+          weight: 3
+          opacity: 0.7
+          fillOpacity: 0.7
+        focus_style:
+          color: '#CD95D7'
+          weight: 3
+          opacity: 0.9
+          fillOpacity: 0.5
       - condition: '"{{location_type}}" === "10"'
         style:
           color: '#f9ff6a'
           weight: 2
           opacity: 0.7
-          fillOpacity: 0.5
+          fillOpacity: 0.3
         focus_style:
           color: '#CD95D7'
           weight: 3
